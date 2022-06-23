@@ -11,7 +11,7 @@
     
     $tch_id=$_GET["tch_id"];   //收到了tch_id，存在，
 
-    include "conn_db.php"; //调用Fun.php文件
+    include "../conn_db.php"; //调用Fun.php文件
 
     $sql="select * from teacher where tch_id='".$tch_id."'";
 
