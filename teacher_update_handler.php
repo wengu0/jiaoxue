@@ -12,19 +12,19 @@
 		 $tch_level=trim($_POST["tch_level"]);  
          $tch_tel=trim($_POST["tch_tel"]);
 		 
-         $sql="update teahcer set tch_name='$tch_name',tch_level='$tch_level',tch_tel='$tch_tel' where tch_id='$tch_id'";
+         $sql="update teacher set tch_name='$tch_name',tch_level='$tch_level',tch_tel='$tch_tel' where tch_id='$tch_id'";
         
 		 $result=mysqli_query($conn,$sql);
-		 //$row=mysql_fetch_array($result);	
+
 
          //php中，非0值，默认为true
 		 if($result>0)  
 		 {		 	
-			echo "<script>alert('保存成功');window.location.href='teacher_info.php';</script>"; 
+			echo "<script>alert('修改成功');window.location.href='teacher_info.php';</script>"; 
 		 }
 		 else
 		 {
-			echo "<script>alert('保存失败');window.location.href='teacher_info.php';</script>";  
+			echo "<script>alert('修改失败');window.location.href='teacher_info.php';</script>";  
 		 } 
 	} 
     mysqli_close($conn);

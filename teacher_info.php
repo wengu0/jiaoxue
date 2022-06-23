@@ -70,7 +70,7 @@
             <td><?php echo $row['tch_tel'];?></td>        
             <td>
             <a class='btn btn-sm btn-primary' href="teacher_update.php?tch_id=<?php echo $row["tch_id"]?>">修改</a>&nbsp;&nbsp;
-            <a class='btn btn-sm btn-danger' href="teacher_update.php?tch_id=<?php echo $row["tch_id"]?>">删除</a>
+            <a class='btn btn-sm btn-danger' href="javascript:del(<?php echo $row["tch_id"]?>)">删除</a>
         </td>
         </tr> 
         <?php 
@@ -80,5 +80,13 @@
        
     </table>
     </fieldset>
+    <script type="text/javascript">
+            function del(id) {
+                if (confirm("确定删除用户"+id+"吗？")) {
+                    window.location = "teacher_delete.php?tch_id=" + id;
+                }
+            }
+    </script>
+           
 </body>
 </html>
