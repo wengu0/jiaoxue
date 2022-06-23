@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师新增</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="tch_add_handler.php" method="post">
+    <table width="500" border="1" height="300" align="center">
+        <tr><td align="center" colspan="2">教师新增</td></tr>
+    <tr><td align="center">姓名：</td>
+        <td><input type="text" name="tch_name" ></td></tr>
+    <tr><td align="center">密码：</td>
+        <td><input type="text" name="tch_pwd" ></td></tr>
+    <tr><td align="center">职称：</td>
+        <td>
+           <select name="tch_level" >
+                <option value="助教">助教</option>
+                <option value="讲师" selected>讲师</option>
+                <option value="副教授">副教授</option>
+                <option value="教授">教授</option>               
+           </select>       
+        </td></tr>
+    <tr><td align="center">电话：</td>
+        <td><input type="text" name="tch_tel" ></td></tr>
+    <tr><td align="center" colspan="2">
+        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='teacher_info.php'">
+    </td></tr>
+    </table>
+</form>
+</body>
+</html>
