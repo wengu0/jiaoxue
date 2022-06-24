@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>教师信息页</title>
+    <title>学生信息页</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -36,16 +36,16 @@
        }
            
         include "../conn_db.php";
-        $sql = "select * from teacher where tch_name like '%".$uname."%'";
+        $sql = "select * from classes where cls_name like '%".$uname."%'";
         $result=mysqli_query($conn,$sql);
         ?>
     <fieldset class="fset">
         
         <legend>查询</legend>
-        <form action="teacher_info.php" method=""GET>
-        姓名：<input type="text" name="uname" id="uname">
+        <form action="clsdent_info.php" method=""GET>
+        班级名称：<input type="text" name="uname" id="uname">
         <input class='btn btn-sm btn-primary' type="submit" value="查询">&nbsp;&nbsp;
-        <input class='btn btn-sm btn-primary' type="button" value="新增" onclick="location.href='teacher_add.html'">
+        <input class='btn btn-sm btn-primary' type="button" value="新增" onclick="location.href='classes_add.html'">
         </form>
     </fieldset>
     <br>
@@ -54,23 +54,25 @@
     <table aling="center" border="1" width="730">
         <tr>
             <th>编号</th>
-            <th>姓名</th>
-            <th>职称</th>
-            <th>电话</th>
+            <th>名称</th>
+            <th>人数</th>
+            <th>人学年份</th>
+            <th>专业名称</th>
             <th>操作</th>
         </tr>
         <?php 
-        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+        while($row = mysqli_fetch_array($result))
         {
             ?>
             <tr>
-            <td><?php echo $row['tch_id'];?></td>
-            <td><?php echo $row['tch_name'];?></td>
-            <td><?php echo $row['tch_level'];?></td>
-            <td><?php echo $row['tch_tel'];?></td>        
+            <td><?php echo $row['cls_id'];?></td>
+            <td><?php echo $row['cls_name'];?></td>
+            <td><?php echo $row['cls_count'];?></td>
+            <td><?php echo $row['enrollment_year'];?></td> 
+            <td><?php echo $row['specialty_name'];?></td>        
             <td>
-            <a class='btn btn-sm btn-primary' href="teacher_update.php?tch_id=<?php echo $row["tch_id"]?>">修改</a>&nbsp;&nbsp;
-            <a class='btn btn-sm btn-danger' href="javascript:del(<?php echo $row["tch_id"]?>)">删除</a>
+            <a class='btn btn-sm btn-primary' href="classes_update.php?cls_id=<?php echo $row["cls_id"]?>">修改</a>&nbsp;&nbsp;
+            <a class='btn btn-sm btn-danger' href="javascript:del(<?php echo $row["cls_id"]?>)">删除</a>
         </td>
         </tr> 
         <?php 
@@ -83,7 +85,7 @@
     <script type="text/javascript">
             function del(id) {
                 if (confirm("确定删除用户"+id+"吗？")) {
-                    window.location = "teacher_delete.php?tch_id=" + id;
+                    window.location = "classes_delete.php?cls_id=" + id;
                 }
             }
     </script>

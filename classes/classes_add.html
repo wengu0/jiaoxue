@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生新增</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+ table{
+    margin-top: 50px;
+    background-color:#4bb8ee; 
+ }
+ input{
+    background-color:rgb(108, 246, 244);
+ }
+ h3{
+    
+    margin-top: 20px;
+ }
+
+</style>
+<body>
+<form action="classes_add_handler.php" method="post">
+    <table width="500" border="1" height="400" align="center">
+    <h3 align="center">班级新增</h3>
+    <tr><td align="center">名称：</td>
+        <td><input type="text" name="cls_name" ></td></tr>
+    <tr><td align="center">人数：</td>
+        <td><input type="text" name="cls_count" ></td></tr>
+    <tr><td align="center">入学年份：</td>
+        <td>
+           <select name="enrollment_year" >
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022" selected>2022</option>               
+           </select>       
+        </td></tr>
+    <tr><td align="center">专业名称：</td>
+        <td><input type="text" name="specialty_name" ></td></tr>
+    <tr><td align="center" colspan="2">
+        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='classes_info.php'">
+    </td></tr>
+    </table>
+</form>
+</body>
+</html>
