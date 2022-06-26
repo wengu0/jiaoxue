@@ -25,6 +25,7 @@
 		if ($result->num_rows>0) {
 			$_SESSION["role"]=$role;
 			$_SESSION["uname"]=$uname;
+			$_SESSION['pwd']=$upwd;
 			echo "<script>location.href='index.php';</script>"; 
 		} else {
 			echo"<script>alert('登陆失败，用户名或密码错误');location='login.html'</script>";

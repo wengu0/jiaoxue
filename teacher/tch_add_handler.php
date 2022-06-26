@@ -11,21 +11,28 @@
 		 $tch_level=trim($_POST["tch_level"]);  
          $tch_tel=trim($_POST["tch_tel"]);
 		 
-		 $sql="INSERT INTO `teacher`(`tch_id`, `tch_name`, `tch_pwd`, `tch_level`, `tch_tel`) ";
-         $sql.=" VALUES (null,'".$tch_name."','".$tch_pwd."','".$tch_level."','".$tch_tel."')";		
-        
-		 $result=mysqli_query($conn,$sql);				 
-		 //$row=mysql_fetch_array($result);	
-
-         //php中，非0值，默认为true
-		 if($result>0)  
-		 {		 	
-			echo "<script>alert('保存成功');window.location.href='teacher_info.php';</script>"; 
+		 if(empty($tch_name)||empty($tch_pwd)||empty($tch_level)||empty($tch_tel)){
+			echo "<script>alert('请输入完整');window.location.href='teacher_info.php';</script>"; 
 		 }
-		 else
-		 {
-			echo "<script>alert('保存失败');window.location.href='teacher_add.html';</script>";  
-		 } 
+		 
+		 else{
+			$sql="INSERT INTO `teacher`(`tch_id`, `tch_name`, `tch_pwd`, `tch_level`, `tch_tel`) ";
+			$sql.=" VALUES (null,'".$tch_name."','".$tch_pwd."','".$tch_level."','".$tch_tel."')";		
+		   
+			$result=mysqli_query($conn,$sql);				 
+			//$row=mysql_fetch_array($result);	
+   
+			//php中，非0值，默认为true
+			if($result>0)  
+			{		 	
+			   echo "<script>alert('保存成功');window.location.href='teacher_info.php';</script>"; 
+			}
+			else
+			{
+			   echo "<script>alert('保存失败');window.location.href='teacher_add.html';</script>";  
+			} 
+		 }
+		
 	} 
     mysqli_close($conn);
 ?>

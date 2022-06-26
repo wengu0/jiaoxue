@@ -16,6 +16,7 @@
           {
 		        $role=$_SESSION["role"];          
                 $uname=trim($_SESSION["uname"]);//获取用户名
+                $pwd = $_SESSION["pwd"];
           }
           else{
             echo "<script>alert('用户登录过期，请重新登录!');location.href='login.html';</script>";
@@ -30,20 +31,24 @@
                 echo "<script>alert('两次密码输入不一致，请重新输入!');location.href='update_pwd.php';</script>";
                 return;
             }
+            
             else{   
                 include "conn_db.php"; //调用Fun.php文件
                 
                 $role=trim($_POST["role"]);//获取用户名
                 $uname=trim($_POST["uname"]);//获取用户名
                 $old_pwd=trim($_POST["old_pwd"]); //密码   
-
-                $sql="";
+                if($old_pwd!=$pwd){
+                    echo "<script>alert('旧密码输入错误，请重新输入!');location.href='update_pwd.php';</script>";
+                    return;
+                }
+                else{
+                    $sql="";
                 switch($role){
                     case 1:$sql= "update admin set admin_pwd='$new_pwd' where admin_id='$uname' and admin_pwd='$old_pwd'";break;
                     case 2:$sql= "update teacher set tch_pwd='$new_pwd' where tch_name='$uname' and tch_pwd='$old_pwd'";break;
                     case 3:$sql= "update student set stu_pwd='$new_pwd' where stu_name='$uname' and stu_pwd='$old_pwd'";break;
                 }
-
                 $result=mysqli_query($conn,$sql);				 
                 
                 if($result>0)  
@@ -55,6 +60,8 @@
                     echo "<script>alert('修改失败!');location.href='upate_pwd.php';</script>"; 
                 } 
 	            mysqli_close($conn);
+                }
+                
 	        } 
         }   
 	?>
