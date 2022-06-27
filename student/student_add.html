@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/axios.min.js"></script>
 </head>
 <style>
  table{
@@ -33,12 +34,21 @@
         <td><input type="text" name="stu_pwd" ></td></tr>
     <tr><td align="center">班级：</td>
         <td>
-           <select name="cls_id" >
-                <option value="1">软件201</option>
-                <option value="2" selected>软件202</option>
-                <option value="3">软件203</option>
-                <option value="4">软件204</option>               
-           </select>       
+            <script>
+                async function get_cls(){
+                    var result=await axios.get("cls_ajax.php");  //ajax异步操作
+
+                    var list=eval(result.data);  //将json字符串转换为json对象模式                    
+                    var option="";
+                    for(var key in list){                   
+                        option+="<option value='"+key+"'>"+list[key]+"</option>";
+                    }
+
+                    document.querySelector("#cls_id").innerHTML=option;
+                }
+                get_cls();
+            </script>            
+            <select name="cls_id" id="cls_id" >  
         </td></tr>
     <tr><td align="center">电话：</td>
         <td><input type="text" name="stu_tel" ></td></tr>
