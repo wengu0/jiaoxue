@@ -31,7 +31,17 @@
     $stu_id=$_GET["stu_id"];   //收到了tch_id，存在，
 
     include "../conn_db.php"; //调用Fun.php文件
+    
+     //----------班级表的操作-----------------
+     $cls_sql="select cls_id,cls_name from classes";
 
+     $cls_result=mysqli_query($conn,$cls_sql);
+
+     $arrLevel=array();
+    
+     while($cls_row=mysqli_fetch_array($cls_result)){
+         $arrLevel[$cls_row["cls_id"]]=$cls_row["cls_name"];           
+     }       
     $sql="select * from student where stu_id='".$stu_id."'";
 
     $result=mysqli_query($conn,$sql);
@@ -49,18 +59,18 @@
         <td><input type="text" name="stu_pwd" value='<?php echo $row["stu_pwd"]; ?>' ></td></tr>
         <tr><td align="center">班级：</td>
         <td>
-           <select name="cls_id" >
+        <select name="cls_id" >
             <?php 
-                $arrLevel=array("1","2","3","4");
-                $current_level=$row["cls_id"];
-                for($i=0;$i<count($arrLevel);$i++){
-                    if($current_level==$arrLevel[$i]){
-                        echo "<option value='".$arrLevel[$i]."' selected>".$arrLevel[$i]."</option>";
+                
+                $cls_id=$row["cls_id"];
+                foreach($arrLevel as $key=>$val){
+                    if($cls_id==$key){                   
+                        echo "<option value='".$key."' selected>".$val."</option>";
                         continue;
-                    }                    
-                    echo "<option value='".$arrLevel[$i]."'>".$arrLevel[$i]."</option>";
-                }
-            ?>         
+                    } 
+                    echo "<option value='".$key."'>".$val."</option>";
+                }               
+            ?>
            </select>       
         </td></tr>
     <tr><td align="center">电话：</td>

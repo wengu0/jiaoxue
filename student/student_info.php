@@ -36,7 +36,11 @@
        }
            
         include "../conn_db.php";
-        $sql = "select * from student where stu_name like '%".$uname."%'";
+        $sql=" SELECT `stu_id`, `stu_name`, `stu_pwd`, `stu_tel`, `cls_name` ";
+        $sql.=" FROM `student` ss,classes cc ";
+        $sql.=" WHERE ss.cls_id=cc.cls_id ";
+        $sql.=" and stu_name like '%".$uname."%'";
+        // $sql = "select * from student where stu_name like '%".$uname."%'";
         $result=mysqli_query($conn,$sql);
         ?>
     <fieldset class="fset">
@@ -66,7 +70,7 @@
             <tr>
             <td><?php echo $row['stu_id'];?></td>
             <td><?php echo $row['stu_name'];?></td>
-            <td><?php echo $row['cls_id'];?></td>
+            <td><?php echo $row['cls_name'];?></td>
             <td><?php echo $row['stu_tel'];?></td>        
             <td>
             <a class='btn btn-sm btn-primary' href="student_update.php?stu_id=<?php echo $row["stu_id"]?>">修改</a>&nbsp;&nbsp;

@@ -3,7 +3,7 @@
 	session_start();       //启动会话
 		
 	include "../conn_db.php"; //调用Fun.php文件
-
+	
 	if($_SERVER["REQUEST_METHOD"] == "POST")
     {   
          $stu_id = trim($_POST["stu_id"]);
