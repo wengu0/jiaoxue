@@ -12,7 +12,7 @@
          $specialty_name=trim($_POST["specialty_name"]);
 		  
 		 if(empty($cls_name)||empty($cls_count)||empty($enrollment_year)||empty($specialty_name)){
-			echo "<script>alert('请输入完整');window.location.href='classes_info.php';</script>"; 
+			echo "<script>alert('请输入完整');window.location.href='classes_add.php';</script>"; 
 		 }
 		 
 		 else{
@@ -20,7 +20,7 @@
 		 $check_sql= "select * from classes where cls_name='$cls_name'";
 		 $check=mysqli_query($conn,$check_sql);
 		 if($check->num_rows>0){
-			echo "<script>alert('已有班级，请重新输入');window.location.href='classes_info.php';</script>"; 
+			echo "<script>alert('已有班级，请重新输入');window.location.href='classes_add.html';</script>"; 
 		 }
 		 else{
 			$sql="INSERT INTO `classes`(`cls_id`, `cls_name`, `cls_count`, `enrollment_year`, `specialty_name`) ";

@@ -11,7 +11,11 @@
 		 $tch_pwd=trim($_POST["tch_pwd"]); 
 		 $tch_level=trim($_POST["tch_level"]);  
          $tch_tel=trim($_POST["tch_tel"]);
+		 if(empty($tch_name)||empty($tch_pwd)||empty($tch_level)||empty($tch_tel)){
+			echo "<script>alert('请输入完整');window.location.href='teacher_info.php';</script>"; 
+		 }
 		 
+		 else{
          $sql="update teacher set tch_name='$tch_name',tch_level='$tch_level',tch_tel='$tch_tel' where tch_id='$tch_id'";
         
 		 $result=mysqli_query($conn,$sql);
@@ -26,6 +30,6 @@
 		 {
 			echo "<script>alert('修改失败');window.location.href='teacher_info.php';</script>";  
 		 } 
-	} 
+	} }
     mysqli_close($conn);
 ?>

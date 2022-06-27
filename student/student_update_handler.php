@@ -11,7 +11,10 @@
 		 $stu_pwd=trim($_POST["stu_pwd"]); 
 		 $cls_id=trim($_POST["cls_id"]);  
          $stu_tel=trim($_POST["stu_tel"]);
-		 
+		 if(empty($stu_name)||empty($stu_pwd)||empty($cls_id)||empty($stu_tel)){
+			echo "<script>alert('请输入完整');window.location.href='student_info.php';</script>"; 
+		 }
+		 else{
          $sql="update student set stu_name='$stu_name',cls_id='$cls_id',stu_tel='$stu_tel' where stu_id='$stu_id'";
         
 		 $result=mysqli_query($conn,$sql);
@@ -26,6 +29,6 @@
 		 {
 			echo "<script>alert('修改失败');window.location.href='student_info.php';</script>";  
 		 } 
-	} 
+	} }
     mysqli_close($conn);
 ?>
