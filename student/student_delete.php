@@ -13,5 +13,5 @@ if (!$result) {
 }
 
 // 删除完跳转到首页
-header("Location:student_info.php");
+header("Location:student_info.html");
 ?>

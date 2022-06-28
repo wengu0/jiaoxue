@@ -12,7 +12,7 @@
 		 $enrollment_year=trim($_POST["enrollment_year"]);  
          $specialty_name=trim($_POST["specialty_name"]);
 		 if(empty($cls_name)||empty($cls_count)||empty($enrollment_year)||empty($specialty_name)){
-			echo "<script>alert('请输入完整');window.location.href='classes_info.php';</script>";
+			echo "<script>alert('请输入完整');window.location.href='classes_info.html';</script>";
 		 }
 		 
 		 else{
@@ -20,7 +20,7 @@
 		 $check_sql= "select * from classes where cls_name='$cls_name'";
 		 $check=mysqli_query($conn,$check_sql);
 		 if($check->num_rows>0){
-			echo "<script>alert('已有班级，请重新输入');window.location.href='classes_info.php';</script>"; 
+			echo "<script>alert('已有班级，请重新输入');window.location.href='classes_info.html';</script>"; 
 		 }
 		 else{
 			$sql="update classes set cls_name='$cls_name',cls_count='$cls_count',enrollment_year='$enrollment_year',specialty_name='$specialty_name' where cls_id='$cls_id'";
@@ -30,11 +30,11 @@
 			//php中，非0值，默认为true
 			if($result>0)  
 			{		 	
-			   echo "<script>alert('修改成功');window.location.href='classes_info.php';</script>"; 
+			   echo "<script>alert('修改成功');window.location.href='classes_info.html';</script>"; 
 			}
 			else
 			{
-			   echo "<script>alert('修改失败');window.location.href='classes_info.php';</script>";  
+			   echo "<script>alert('修改失败');window.location.href='classes_info.html';</script>";  
 			} 
 		 }
         

@@ -79,7 +79,7 @@
    
     <tr><td align="center" colspan="2">
         <input type="submit" value="保存">&nbsp;&nbsp;
-        <input type="button" value="返回" onclick="location.href='course_info.php'">
+        <input type="button" value="返回" onclick="location.href='course_info.html'">
     </td></tr>
     </table>
 </form>

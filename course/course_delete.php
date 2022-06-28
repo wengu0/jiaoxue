@@ -13,5 +13,5 @@ if (!$result) {
 }
 
 // 删除完跳转到首页
-header("Location:course_info.php");
+header("Location:course_info.html");
 ?>

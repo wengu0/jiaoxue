@@ -67,7 +67,7 @@
         <td><input type="text" name="specialty_name" value='<?php echo $row["specialty_name"]; ?>' ></td></tr>
     <tr><td align="center" colspan="2">
         <input type="submit" value="保存">&nbsp;&nbsp;
-        <input type="button" value="返回" onclick="location.href='classes_info.php'">
+        <input type="button" value="返回" onclick="location.href='classes_info.html'">
     </td></tr>
     </table>
 </form>

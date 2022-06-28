@@ -12,7 +12,7 @@
 		 $tch_level=trim($_POST["tch_level"]);  
          $tch_tel=trim($_POST["tch_tel"]);
 		 if(empty($tch_name)||empty($tch_pwd)||empty($tch_level)||empty($tch_tel)){
-			echo "<script>alert('请输入完整');window.location.href='teacher_info.php';</script>"; 
+			echo "<script>alert('请输入完整');window.location.href='teacher_info.html';</script>"; 
 		 }
 		 
 		 else{
@@ -24,11 +24,11 @@
          //php中，非0值，默认为true
 		 if($result>0)  
 		 {		 	
-			echo "<script>alert('修改成功');window.location.href='teacher_info.php';</script>"; 
+			echo "<script>alert('修改成功');window.location.href='teacher_info.html';</script>"; 
 		 }
 		 else
 		 {
-			echo "<script>alert('修改失败');window.location.href='teacher_info.php';</script>";  
+			echo "<script>alert('修改失败');window.location.href='teacher_info.html';</script>";  
 		 } 
 	} }
     mysqli_close($conn);

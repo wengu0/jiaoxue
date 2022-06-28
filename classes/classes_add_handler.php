@@ -31,7 +31,7 @@
 			//php中，非0值，默认为true
 			if($result>0)  
 			{		 	
-			   echo "<script>alert('保存成功');window.location.href='classes_info.php';</script>"; 
+			   echo "<script>alert('保存成功');window.location.href='classes_info.html';</script>"; 
 			}
 			else
 			{

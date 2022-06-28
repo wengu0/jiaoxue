@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教师修改</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+ table{
+    margin-top: 50px;
+    background-color:#4bb8ee; 
+ }
+ input{
+    background-color:rgb(108, 246, 244);
+ }
+ h3{
+    
+    margin-top: 20px;
+ }
+
+</style>
 </head>
 <body>
  <?php
@@ -21,7 +39,7 @@
 ?>
 <form action="teacher_update_handler.php" method="post">
     <table width="500" border="1" height="400" align="center">
-        <caption><h3>教师新增</h3></caption>
+        <h3 align="center">教师修改增</h3>
     <tr><td align="center">编号：</td>
         <td><input type="text" readonly name="tch_id" value='<?php echo $tch_id; ?>' ></td></tr>
     <tr><td align="center">姓名：</td>
@@ -54,7 +72,7 @@
         <td><input type="text" name="tch_tel" value='<?php echo $row["tch_tel"]; ?>' ></td></tr>
     <tr><td align="center" colspan="2">
         <input type="submit" value="保存">&nbsp;&nbsp;
-        <input type="button" value="返回" onclick="location.href='teacher_info.php'">
+        <input type="button" value="返回" onclick="location.href='teacher_info.html'">
     </td></tr>
     </table>
 </form>

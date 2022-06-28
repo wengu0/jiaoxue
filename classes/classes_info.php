@@ -1,94 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学生信息页</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <script src="../bootstrap/js/jquery.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <style>
-        tr:nth-child(odd){
-            background-color:#4bb8ee; 
-        }
-        tr:nth-child(even){
-            background-color:rgb(108, 246, 244);
-        }
-        .fset{
-            width:750px;
-            margin:0px auto;            
-        }
-        td{
-            text-align: center;
-        }
-        th{
-            text-align: center;
-        }
-        </style>
-</head>
-<body>
-    <?php 
-    $uname='';
-    if($_SERVER['REQUEST_METHOD']=="GET")
-    {   if(isset($_GET["uname"])){
-            $uname = $_GET["uname"];
-       }
-           
-        include "../conn_db.php";
-        $sql = "select * from classes where cls_name like '%".$uname."%'";
-        $result=mysqli_query($conn,$sql);
-        ?>
-    <fieldset class="fset">
-        
-        <legend>查询</legend>
-        <form action="clsdent_info.php" method=""GET>
-        班级名称：<input type="text" name="uname" id="uname">
-        <input class='btn btn-sm btn-primary' type="submit" value="查询">&nbsp;&nbsp;
-        <input class='btn btn-sm btn-primary' type="button" value="新增" onclick="location.href='classes_add.html'">
-        </form>
-    </fieldset>
-    <br>
-    <fieldset class="fset">
-        <legend>结果</legend>
-    <table aling="center" border="1" width="730">
-        <tr>
-            <th>编号</th>
-            <th>名称</th>
-            <th>人数</th>
-            <th>人学年份</th>
-            <th>专业名称</th>
-            <th>操作</th>
-        </tr>
-        <?php 
-        while($row = mysqli_fetch_array($result))
-        {
-            ?>
-            <tr>
-            <td><?php echo $row['cls_id'];?></td>
-            <td><?php echo $row['cls_name'];?></td>
-            <td><?php echo $row['cls_count'];?></td>
-            <td><?php echo $row['enrollment_year'];?></td> 
-            <td><?php echo $row['specialty_name'];?></td>        
-            <td>
-            <a class='btn btn-sm btn-primary' href="classes_update.php?cls_id=<?php echo $row["cls_id"]?>">修改</a>&nbsp;&nbsp;
-            <a class='btn btn-sm btn-danger' href="javascript:del(<?php echo $row["cls_id"]?>)">删除</a>
-        </td>
-        </tr> 
-        <?php 
-        }
+<?php
+$pindex=0;   //页数
+$psize=5;    //页笔数
+$uname="";
+if($_SERVER["REQUEST_METHOD"]=="GET")
+{
+    if(isset($_GET["uname"])){
+        $uname=$_GET["uname"];
     }
-    ?>
-       
-    </table>
-    </fieldset>
-    <script type="text/javascript">
-            function del(id) {
-                if (confirm("确定删除用户"+id+"吗？")) {
-                    window.location = "classes_delete.php?cls_id=" + id;
-                }
-            }
-    </script>
-           
-</body>
-</html>
+    if(isset($_GET["pindex"])){
+        $pindex=$_GET["pindex"];
+    }  
+}
+include "../conn_db.php"; //调用Fun.php文件
+
+$sql_count="select count(*) cnt from classes WHERE cls_name like '%".$uname."%'";
+$result_count=mysqli_query($conn,$sql_count);
+$row_count=mysqli_fetch_array($result_count);
+$pcount= ceil(intval($row_count["cnt"])/$psize);
+
+$begin=$pindex*$psize;
+$sql=" SELECT `cls_id`, `cls_name`, `cls_count`, `enrollment_year`,`specialty_name` ";
+$sql.=" FROM classes ";
+$sql.=" WHERE cls_name like '%".$uname."%'";
+$sql.=" limit $begin,$psize";
+
+$result=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($result);
+$tab="<table aling='center' border='1' width='730'>";
+$tab.="<tr><th>编号</th><th>名称</th><th>人数</th><th>入学年份</th><th>专业名称</th><th>操作</th></tr>";
+while($row){
+    $tab.="<tr><td>".$row["cls_id"]."</td><td>".$row["cls_name"]."</td><td>".$row["cls_count"]."</td><td>".$row["enrollment_year"];
+    $tab.="</td><td>".$row["specialty_name"];
+    $tab.="</td><td>";
+    $tab.="<div class='divOper'>";
+    $tab.="<a class='btn btn-sm btn-primary' href='classes_update.php?cls_id=".$row["cls_id"]."'>修改</a>&nbsp;&nbsp; ";       
+    $tab.="<a class='btn btn-sm btn-danger' href='javascript:del(".$row["cls_id"].")'>删除</a>";
+    $tab.="</div>";
+    $tab.="</td></tr>";
+
+    $row=mysqli_fetch_array($result);
+    } 
+    $tab.="</table>";
+    mysqli_free_result($result);
+    mysqli_close($conn);
+
+    echo $pcount."#";
+    echo $tab;
+?>
