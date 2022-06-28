@@ -39,7 +39,7 @@
 ?>
 <form action="teacher_update_handler.php" method="post">
     <table width="500" border="1" height="400" align="center">
-        <h3 align="center">教师修改增</h3>
+        <h3 align="center">教师修改</h3>
     <tr><td align="center">编号：</td>
         <td><input type="text" readonly name="tch_id" value='<?php echo $tch_id; ?>' ></td></tr>
     <tr><td align="center">姓名：</td>

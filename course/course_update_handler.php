@@ -11,14 +11,14 @@
 		 $course_period	=trim($_POST["course_period"]); 
 		 $course_credit=trim($_POST["course_credit"]);  
          if(empty($course_name)||empty($course_period)||empty($course_credit)){
-			echo "<script>alert('请输入完整');window.location.href='course_info.php';</script>"; 
+			echo "<script>alert('请输入完整');window.location.href='course_info.html';</script>"; 
 		 }
 		 
 		 else{
 			$check_sql= "select * from course where course_name='$course_name'";
 			$check=mysqli_query($conn,$check_sql);
-		 if($check->num_rows>0){
-			echo "<script>alert('已有课程，请重新输入');window.location.href='course_info.php';</script>"; 
+		 if($check->num_rows>1){
+			echo "<script>alert('已有课程，请重新输入');window.location.href='course_info.html';</script>"; 
 		 }
 		 else{
 		 
@@ -29,11 +29,11 @@
          //php中，非0值，默认为true
 		 if($result>0)  
 		 {		 	
-			echo "<script>alert('修改成功');window.location.href='course_info.php';</script>"; 
+			echo "<script>alert('修改成功');window.location.href='course_info.html';</script>"; 
 		 }
 		 else
 		 {
-			echo "<script>alert('修改失败');window.location.href='course_info.php';</script>";  
+			echo "<script>alert('修改失败');window.location.href='course_info.html';</script>";  
 		 } 
 	} 
 }}mysqli_close($conn);
