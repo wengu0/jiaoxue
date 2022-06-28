@@ -44,7 +44,6 @@
         $result=mysqli_query($conn,$sql);
         ?>
     <fieldset class="fset">
-        
         <legend>查询</legend>
         <form action="student_info.php" method=""GET>
         姓名：<input type="text" name="uname" id="uname">
