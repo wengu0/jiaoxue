@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学生新增</title>
+    <title>成绩新增</title>
     <script src="../js/axios.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
@@ -38,7 +38,7 @@ $course_result=mysqli_query($conn,$course_sql);
 ?>
 <form action="score_add_handler.php" method="post">
     <table width="500" border="1" height="400" align="center">
-        <h3 align="center">分数新增</h3>
+        <h3 align="center">成绩新增</h3>
         <tr><td align="center">班级：</td>
         <td>           
              <select name="cls_id" id="cls_id" onchange="get_stu()" >

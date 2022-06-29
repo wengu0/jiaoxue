@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>课程修改</title>
+    <title>班级修改</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -46,7 +46,7 @@
 ?>
 <form action="classes_update_handler.php" method="post">
     <table width="500" border="1" height="400" align="center">
-        <h3 align="center">教师新增</h3>
+        <h3 align="center">班级修改</h3>
     <tr><td align="center">编号：</td>
         <td><input type="text" readonly name="cls_id" value='<?php echo $cls_id; ?>' ></td></tr>
     <tr><td align="center">姓名：</td>
