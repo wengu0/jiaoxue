@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程管理</title>
+    <script src="../js/axios.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        tr:nth-child(odd){
+            background-color:#4bb8ee; 
+        }
+        tr:nth-child(even){
+            background-color:rgb(108, 246, 244);
+        }
+        .fset{
+            width:750px;
+            margin:0px auto;            
+        }
+        td{
+            text-align: center;
+        }
+        th{
+            text-align: center;
+        }
+        #div_pages{
+            text-align: center;
+        }
+        input{
+            width:80px ;
+        }
+        </style>
+</head>
+<body>
+    <fieldset class="fset">
+        <legend>查询</legend>        
+            课程名字：<input type="text" name="course_name" id="course_name">
+            班级名字：<input type="text" name="cls_name" id="cls_name">
+            学生名字：<input type="text" name="stu_name" id="stu_name">
+
+            <button class='btn btn-sm btn-primary' type="button" id="btnQuery" value="查询" onclick="query_info()">查询</button>&nbsp;&nbsp;
+            <button class='btn btn-sm btn-primary' type="button" value="新增" onclick="location.href='score_add.php'">新增</button>      
+    </fieldset>
+    <br>    
+    <fieldset class="fset">
+        <legend>结果</legend>
+        <div id="divResult"></div>       
+    </fieldset>
+    <div id="div_pages">
+        <span>当前第&nbsp;<a id="p_index">0</a>&nbsp;页，共&nbsp;<a id="p_count">0</a>&nbsp;页</span>
+        <a href="javascript:query_first()">首页</a>
+        <a href="javascript:query_prev()">上一页</a>
+        <a href="javascript:query_next()">下一项</a>
+        <a href="javascript:query_last()">尾页</a>
+    </div>
+    <script>
+        window.onload=function(){
+            query_info();
+        }
+
+        //首页
+        async function query_first(){            
+            document.getElementById("p_index").innerText=1;
+            var pindex=document.getElementById("p_index").innerText;
+            var course_name=document.getElementById("course_name").value;
+            var cls_name=document.getElementById("cls_name").value;
+            var stu_name=document.getElementById("stu_name").value;
+
+            var url="score_info.php";
+            url+="?course_name="+course_name;
+            url+="&cls_name="+cls_name;
+            url+="&stu_name="+stu_name;
+            url+="&pindex="+(parseInt(pindex)-1);
+
+            var result=await axios.get(url);
+            var pcount=result.data.split('#')[0];
+            var tab=result.data.split('#')[1];            
+            document.getElementById("divResult").innerHTML=tab;   //这是通过javascript的方式更新分页内容
+        }
+        //上一页
+        async function query_prev(){
+            var pindex=document.getElementById("p_index").innerText;
+            if(parseInt(pindex)>1){
+                document.getElementById("p_index").innerText=parseInt(pindex)-1;
+            }
+            var pindex=document.getElementById("p_index").innerText;
+            var course_name=document.getElementById("course_name").value;
+            var cls_name=document.getElementById("cls_name").value;
+            var stu_name=document.getElementById("stu_name").value;
+
+            var url="score_info.php";
+            url+="?course_name="+course_name;
+            url+="&cls_name="+cls_name;
+            url+="&stu_name="+stu_name;
+            url+="&pindex="+(parseInt(pindex)-1);
+
+            var result=await axios.get(url);
+            var pcount=result.data.split('#')[0];
+            var tab=result.data.split('#')[1];            
+            document.getElementById("divResult").innerHTML=tab;
+        }
+        //下一页
+        async function query_next(){
+            var pindex=document.getElementById("p_index").innerText;
+            var pcount=document.getElementById("p_count").innerText;
+            if(parseInt(pindex)<parseInt(pcount)){
+                document.getElementById("p_index").innerText=parseInt(pindex)+1;
+            }
+            var pindex=document.getElementById("p_index").innerText;
+
+            var course_name=document.getElementById("course_name").value;
+            var cls_name=document.getElementById("cls_name").value;
+            var stu_name=document.getElementById("stu_name").value;
+
+            var url="score_info.php";
+            url+="?course_name="+course_name;
+            url+="&cls_name="+cls_name;
+            url+="&stu_name="+stu_name;
+            url+="&pindex="+(parseInt(pindex)-1);
+
+            var result=await axios.get(url);
+
+            var pcount=result.data.split('#')[0];
+            var tab=result.data.split('#')[1];            
+            document.getElementById("divResult").innerHTML=tab;  
+        }
+        //尾页
+        async function query_last(){
+
+            var pcount=document.getElementById("p_count").innerText;
+            document.getElementById("p_index").innerText=pcount;
+            var pindex=document.getElementById("p_index").innerText;
+           
+            document.getElementById("p_index").innerText=document.getElementById("p_count").innerText;
+            
+            var course_name=document.getElementById("course_name").value;
+            var cls_name=document.getElementById("cls_name").value;
+            var stu_name=document.getElementById("stu_name").value;
+
+            var url="score_info.php";
+            url+="?course_name="+course_name;
+            url+="&cls_name="+cls_name;
+            url+="&stu_name="+stu_name;
+            url+="&pindex="+(parseInt(pindex)-1);
+
+            var result=await axios.get(url);
+
+            var pcount=result.data.split('#')[0];
+            var tab=result.data.split('#')[1];            
+            document.getElementById("divResult").innerHTML=tab;
+        }
+
+        //查询
+        async function query_info(){
+            document.getElementById("p_index").innerText=1;
+            var pindex=document.getElementById("p_index").innerText;
+            
+            var course_name=document.getElementById("course_name").value;
+            var cls_name=document.getElementById("cls_name").value;
+            var stu_name=document.getElementById("stu_name").value;
+
+            var url="score_info.php";
+            url+="?course_name="+course_name;
+            url+="&cls_name="+cls_name;
+            url+="&stu_name="+stu_name;
+            url+="&pindex="+(parseInt(pindex)-1);
+
+            var result=await axios.get(url);
+
+            var pcount=result.data.split('#')[0];
+            var tab=result.data.split('#')[1];            
+            document.getElementById("divResult").innerHTML=tab;
+           
+            document.getElementById("p_count").innerText=pcount;
+        }
+        function del(id) {
+                if (confirm("确定删除用户"+id+"吗？")) {
+                    window.location = "score_delete.php?score_id=" + id;
+                }
+            }
+    </script>
+
+</body>
+</html>

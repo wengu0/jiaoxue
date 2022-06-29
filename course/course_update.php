@@ -27,8 +27,8 @@
             text-align: center;
         }
         input{
-    background-color:rgb(108, 246, 244);
- }
+            background-color:rgb(108, 246, 244);
+        }
         </style>
 <body>
 

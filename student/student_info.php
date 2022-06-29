@@ -19,17 +19,18 @@ $row_count=mysqli_fetch_array($result_count);
 $pcount= ceil(intval($row_count["cnt"])/$psize);
 
 $begin=$pindex*$psize;
-$sql=" SELECT `stu_id`, `stu_name`, `cls_id`, `stu_tel` ";
-$sql.=" FROM student ";
+$sql=" SELECT `stu_id`, `stu_name`, `stu_tel`,`cls_name` ";
+$sql.=" FROM student,classes ";
 $sql.=" WHERE stu_name like '%".$uname."%'";
+$sql.=" and classes.cls_id=student.cls_id";
 $sql.=" limit $begin,$psize";
 
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 $tab="<table aling='center' border='1' width='730'>";
-$tab.="<tr><th>编号</th><th>姓名</th><th>职称</th><th>电话</th><th>操作</th></tr>";
+$tab.="<tr><th>编号</th><th>姓名</th><th>班级</th><th>电话</th><th>操作</th></tr>";
 while($row){
-    $tab.="<tr><td>".$row["stu_id"]."</td><td>".$row["stu_name"]."</td><td>".$row["cls_id"];
+    $tab.="<tr><td>".$row["stu_id"]."</td><td>".$row["stu_name"]."</td><td>".$row["cls_name"];
     $tab.="</td><td>".$row["stu_tel"];
     $tab.="</td><td>";
     $tab.="<div class='divOper'>";
