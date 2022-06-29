@@ -17,12 +17,15 @@
 		 
 		 else{
 			//检查数据库是否有班级
-		 $check_sql= "select * from classes where cls_name='$cls_name'";
+		 $check_sql= "select * from classes where cls_name='".$cls_name."'";
+		 $check_sql.="and enrollment_year='".$enrollment_year."'";
+		 $check_sql.="and specialty_name='".$specialty_name."'";
 		 $check=mysqli_query($conn,$check_sql);
 		 if($check->num_rows>0){
 			echo "<script>alert('已有班级，请重新输入');window.location.href='classes_info.html';</script>"; 
-		 }
+		}
 		 else{
+			
 			$sql="update classes set cls_name='$cls_name',cls_count='$cls_count',enrollment_year='$enrollment_year',specialty_name='$specialty_name' where cls_id='$cls_id'";
         
 			$result=mysqli_query($conn,$sql);

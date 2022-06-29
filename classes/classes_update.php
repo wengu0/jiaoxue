@@ -49,9 +49,9 @@
         <h3 align="center">班级修改</h3>
     <tr><td align="center">编号：</td>
         <td><input type="text" readonly name="cls_id" value='<?php echo $cls_id; ?>' ></td></tr>
-    <tr><td align="center">姓名：</td>
+    <tr><td align="center">名称：</td>
         <td><input type="text" name="cls_name" value='<?php echo $row["cls_name"]; ?>' ></td></tr>
-    <tr><td align="center">密码：</td>
+    <tr><td align="center">入学时间：</td>
         <td><input type="text" name="cls_count" value='<?php echo $row["cls_count"]; ?>' ></td></tr>
         <tr><td align="center">班级：</td>
         <td>

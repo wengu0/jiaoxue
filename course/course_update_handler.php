@@ -15,26 +15,27 @@
 		 }
 		 
 		 else{
-			$check_sql= "select * from course where course_name='$course_name'";
+			$check_sql= "select * from course where course_name='$course_name' ";
+			$check_sql.="and course_period='".$course_period."' ";
+			$check_sql.="and course_credit='".$course_credit."' ";
 			$check=mysqli_query($conn,$check_sql);
-		 if($check->num_rows>1){
-			echo "<script>alert('已有课程，请重新输入');window.location.href='course_info.html';</script>"; 
-		 }
-		 else{
-		 
-         $sql="update course set course_name='$course_name',course_period='$course_period',course_credit='$course_credit' where course_id='$course_id'";
-        
-		 $result=mysqli_query($conn,$sql);
+			if($check->num_rows>0){
+				echo "<script>alert('已有课程，请重新输入');window.location.href='course_info.html';</script>"; 
+			}
+			else{
+			$sql="update course set course_name='$course_name',course_period='$course_period',course_credit='$course_credit' where course_id='$course_id'";
+			
+			$result=mysqli_query($conn,$sql);
 
-         //php中，非0值，默认为true
-		 if($result>0)  
-		 {		 	
-			echo "<script>alert('修改成功');window.location.href='course_info.html';</script>"; 
-		 }
-		 else
-		 {
-			echo "<script>alert('修改失败');window.location.href='course_info.html';</script>";  
-		 } 
+			//php中，非0值，默认为true
+			if($result>0)  
+			{		 	
+				echo "<script>alert('修改成功');window.location.href='course_info.html';</script>"; 
+			}
+			else
+			{
+				echo "<script>alert('修改失败');window.location.href='course_info.html';</script>";  
+			} 
 	} 
 }}mysqli_close($conn);
 ?>
