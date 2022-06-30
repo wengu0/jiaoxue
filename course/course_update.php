@@ -53,7 +53,7 @@
         <td><input type="text" name="course_name" value='<?php echo $row["course_name"]; ?>' ></td></tr>
     <tr><td align="center">学期：</td>
     <td>
-           <select name="course_period" >
+           <select name="course_period" class="btn btn-primary dropdown-toggle" >
             <?php 
                 $arrLevel=array("1","2");
                 $current_level=$row["course_period"];
@@ -68,7 +68,7 @@
            </select> </td></tr>
         <tr><td align="center">学分：</td>
         <td>
-           <select name="course_credit" >
+           <select name="course_credit" class="btn btn-primary dropdown-toggle" >
             <?php 
                 $arrLevel=array("2","4");
                 $current_level=$row["course_credit"];

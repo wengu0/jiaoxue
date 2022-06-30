@@ -10,6 +10,9 @@
 <body>
     <?php 
 	      session_start();
+          if(empty($_SESSION["uname"])){
+            echo"<script>alert('用户还没有登录');location='login.html'</script>";
+          }
           $welcome="";
 		  $role="管理员";
           

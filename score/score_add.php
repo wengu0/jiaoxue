@@ -41,7 +41,7 @@ $course_result=mysqli_query($conn,$course_sql);
         <h3 align="center">成绩新增</h3>
         <tr><td align="center">班级：</td>
         <td>           
-             <select name="cls_id" id="cls_id" onchange="get_stu()" >
+             <select name="cls_id" id="cls_id" onchange="get_stu()" class="btn btn-primary dropdown-toggle" >
              <?php
                 while($cls_row=mysqli_fetch_array($cls_result)){
                 ?>
@@ -70,13 +70,13 @@ $course_result=mysqli_query($conn,$course_sql);
                 }
                 
             </script>
-            <select name="stu_id" id="stu_id">
+            <select name="stu_id" id="stu_id" class="btn btn-primary dropdown-toggle">
                 <!--<option value="1">1</option>
                 <option value="2">2</option>-->
             </select>
         </td></tr>
     <tr><td align="center">课程：</td>
-        <td><select name="course_id" id="course_id" >
+        <td><select name="course_id" id="course_id" class="btn btn-primary dropdown-toggle" >
              <?php
                 while($course_row=mysqli_fetch_array($course_result)){
                 ?>

@@ -5,32 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生管理系统</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <style>
         *{
-            border-radius: 5px;
+            
         }
         table{
            margin: 150px auto;            
         }
-        tr{
-            background-color:cadetblue; 
-        }
+       
         tr:nth-child(1){
-                background-color: gray;
+                background-color:#4bb8ee; 
                 font-size: 30px;
         }
-        #btnLogin{
-                background-color: green;
-                color: white;
-                width: 100px;
-                height: 25px;
-        }
-        #btnCancel{
-                background-color: red;
-                color: white;
-                width: 100px;
-                height: 25px;
-        }
+       tr:nth-child(n+2):nth-child(-n+5){
+            background-color:rgb(108, 246, 244);
+       }
     </style>
 </head>
 <body>
@@ -45,8 +37,8 @@
                 <input type="radio" name="role" value="3" id="student">学生&nbsp;&nbsp;
             </td></tr>
             <tr><td colspan="2" align="center">
-                <input type="submit" value="登录" id="btnLogin">&nbsp;&nbsp;
-                <input type="button" value="取消" id="btnCancel" onclick="window.close();">
+                <input class='btn btn-sm btn-primary' type="submit" value="登录" id="btnLogin">&nbsp;&nbsp;
+                <input class="btn btn-sm btn-secondary" type="button" value="取消" id="btnCancel" onclick="window.close();">
             </td></tr>
         </table>
         </form>

@@ -55,7 +55,7 @@
         <td><input type="text" name="cls_count" value='<?php echo $row["cls_count"]; ?>' ></td></tr>
         <tr><td align="center">班级：</td>
         <td>
-           <select name="enrollment_year" >
+           <select name="enrollment_year" class="btn btn-primary dropdown-toggle" >
             <?php 
                 $arrLevel=array("2019","2020","2021","2022");
                 $current_level=$row["enrollment_year"];

@@ -65,7 +65,7 @@
         <td><input type="text" name="stu_pwd" value='<?php echo $row["stu_pwd"]; ?>' ></td></tr>
         <tr><td align="center">班级：</td>
         <td>
-        <select name="cls_id" >
+        <select name="cls_id" class="btn btn-primary dropdown-toggle" >
             <?php 
                 
                 $cls_id=$row["cls_id"];

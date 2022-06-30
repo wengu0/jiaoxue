@@ -27,6 +27,7 @@
             text-align: center;
         }
         input{
+            width:50px;
     background-color:rgb(108, 246, 244);
  }
         </style>
@@ -66,7 +67,7 @@
         <td><input type="text" readonly name="score_id" value='<?php echo $score_id; ?>' ></td></tr>
         <tr><td align="center">班级：</td>
         <td>
-        <select name="cls_id">
+        <select name="cls_id" class="btn btn-primary dropdown-toggle">
             <?php 
                 
                 $cls_id=$row["cls_id"];
@@ -81,7 +82,7 @@
            </select>       
         </td></tr>
     <tr><td align="center">姓名：</td>
-        <td> <select name="stu_id" >
+        <td> <select name="stu_id" class="btn btn-primary dropdown-toggle" >
             <?php 
                 
                 $stu_id=$row["stu_id"];
@@ -96,7 +97,7 @@
            </select>       </td></tr>
     <tr><td align="center">课程：</td>
     <td>
-    <select name="course_id" >
+    <select name="course_id" class="btn btn-primary dropdown-toggle" >
             <?php 
                 
                 $course_id=$row["course_id"];
