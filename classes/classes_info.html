@@ -9,27 +9,8 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <style>
-        tr:nth-child(odd){
-            background-color:#4bb8ee; 
-        }
-        tr:nth-child(even){
-            background-color:rgb(108, 246, 244);
-        }
-        .fset{
-            width:750px;
-            margin:0px auto;            
-        }
-        td{
-            text-align: center;
-        }
-        th{
-            text-align: center;
-        }
-        #div_pages{
-            text-align: center;
-        }
-        </style>
+    <link rel="stylesheet" href="../css/info.css">
+    
 </head>
 <body>
     <fieldset class="fset">
@@ -126,7 +107,7 @@
         }
         function del(id) {
                 if (confirm("确定删除用户"+id+"吗？")) {
-                    window.location = "classes_delete.php?classes_id=" + id;
+                    window.location = "classes_delete.php?cls_id=" + id;
                 }
             }
     </script>

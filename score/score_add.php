@@ -9,22 +9,10 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/info.css">
 </head>
 
-<style>
- table{ 
-    margin-top: 50px;
-    background-color:#4bb8ee; 
- }
- input{
-    background-color:rgb(108, 246, 244);
- }
- h3{
-    
-    margin-top: 20px;
- }
 
-</style>
 <body>
 <?php
 include "../conn_db.php"; //调用Fun.php文件
@@ -90,8 +78,8 @@ $course_result=mysqli_query($conn,$course_sql);
         <td><input type="number" name="score_val" ></td></tr>
     
     <tr><td align="center" colspan="2">
-        <input type="submit" value="保存">&nbsp;&nbsp;
-        <input type="button" value="返回" onclick="location.href='score_info.html'">
+        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='score_info.html'">
     </td></tr>
     </table>
 </form>

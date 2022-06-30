@@ -8,22 +8,10 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/info.css">
 </head>
-<style>
- table{
-    margin-top: 50px;
-    background-color:#4bb8ee; 
- }
- input{
-    background-color:rgb(108, 246, 244);
- }
- h3{
-    
-    margin-top: 20px;
- }
 
-</style>
-</head>
+
 <body>
  <?php
     
@@ -71,8 +59,8 @@
     <tr><td align="center">电话：</td>
         <td><input type="text" name="tch_tel" value='<?php echo $row["tch_tel"]; ?>' ></td></tr>
     <tr><td align="center" colspan="2">
-        <input type="submit" value="保存">&nbsp;&nbsp;
-        <input type="button" value="返回" onclick="location.href='teacher_info.html'">
+        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='teacher_info.html'">
     </td></tr>
     </table>
 </form>

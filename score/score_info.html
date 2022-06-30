@@ -9,37 +9,15 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <style>
-        tr:nth-child(odd){
-            background-color:#4bb8ee; 
-        }
-        tr:nth-child(even){
-            background-color:rgb(108, 246, 244);
-        }
-        .fset{
-            width:750px;
-            margin:0px auto;            
-        }
-        td{
-            text-align: center;
-        }
-        th{
-            text-align: center;
-        }
-        #div_pages{
-            text-align: center;
-        }
-        input{
-            width:80px ;
-        }
-        </style>
+    <link rel="stylesheet" href="../css/info.css">
+   
 </head>
 <body>
     <fieldset class="fset">
         <legend>查询</legend>        
-            课程名字：<input type="text" name="course_name" id="course_name">
-            班级名字：<input type="text" name="cls_name" id="cls_name">
-            学生名字：<input type="text" name="stu_name" id="stu_name">
+            课程名字：<input class="inp" type="text" name="course_name" id="course_name">
+            班级名字：<input class="inp" type="text" name="cls_name" id="cls_name">
+            学生名字：<input class="inp" type="text" name="stu_name" id="stu_name">
 
             <button class='btn btn-sm btn-primary' type="button" id="btnQuery" value="查询" onclick="query_info()">查询</button>&nbsp;&nbsp;
             <button class='btn btn-sm btn-primary' type="button" value="新增" onclick="location.href='score_add.php'">新增</button>      

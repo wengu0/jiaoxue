@@ -8,29 +8,9 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <script src="../bootstrap/js/jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/info.css">
 </head>
-<style>
-        tr:nth-child(odd){
-            background-color:#4bb8ee; 
-        }
-        tr:nth-child(even){
-            background-color:rgb(108, 246, 244);
-        }
-        .fset{
-            width:750px;
-            margin:0px auto;            
-        }
-        td{
-            text-align: center;
-        }
-        th{
-            text-align: center;
-        }
-        input{
-            width:50px;
-    background-color:rgb(108, 246, 244);
- }
-        </style>
+<
 <body>
 
  <?php
@@ -116,8 +96,8 @@
         <td><input type="text" name="score_val" value='<?php echo $row["score_val"]; ?>' ></td></tr>
         
     <tr><td align="center" colspan="2">
-        <input type="submit" value="保存">&nbsp;&nbsp;
-        <input type="button" value="返回" onclick="location.href='score_info.html'">
+        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='score_info.html'">
     </td></tr>
     </table>
 </form>

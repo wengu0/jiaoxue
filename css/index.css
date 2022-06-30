@@ -15,7 +15,7 @@
 }
 #divWelcome{
     height:40px;
-    background-color:rgb(108, 246, 244);
+    background-color:#B8DAFF;
 }
 #divWelcome span{
     display:block;
@@ -34,18 +34,17 @@ ul{
 }
 ul h3{
     display: block;
-    width:93%;
-    height: 30px;
+    width:100%;
+    height: 45px;
     padding-top: 5px;
-    background-color:#47c9f0;
-    color:white;
-    padding-left:7%;
+    background-color:#B8DAFF;
+    color:black;
+    padding-left:6%;
 }
 ul li{
     list-style:none;
-    width:90%;
-    height:30px;
-    background-color:rgb(64, 167, 231);
+    width:100%;
+    height:45px;
     margin:3px;            
     padding-left:7%;
    }

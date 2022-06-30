@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教学管理系统</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
     <?php 
@@ -41,7 +44,7 @@
                         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
                         {
                 ?>
-                <li><a href='<?php echo @$row["menu_url"] ?>' target="mainWindow">
+                <li class="list-group-item list-group-item-primary"><a href='<?php echo @$row["menu_url"] ?>' target="mainWindow">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <circle cx="14" cy="6" r="2"></circle>

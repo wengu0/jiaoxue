@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/info.css">
 </head>
 <?php 
 	      session_start();
@@ -65,28 +66,6 @@
 	        } 
         }   
 	?>
-<style>
-    tr:nth-child(odd){
-            background-color:#4bb8ee; 
-    }
-    tr:nth-child(even){
-        background-color:rgb(108, 246, 244);
-    }
-    .fset{
-        width:750px;
-        margin:0px auto;            
-    }
-    #td1{
-        margin-left: 20px;
-    }
-    input{
-        margin-left: 10px;
-        
-    }
-    td{
-        text-align: center;
-    }
-    </style>
 <body>
     <form action="update_pwd.php" method="post">
         <table width="500" border="1" height="300" align="center">
@@ -96,7 +75,7 @@
             <tr><td>原密码:</td><td><input type="text" name="old_pwd"></input></td></tr>
             <tr><td>新密码:</td><td><input type="text" name="new_pwd"></input></td></tr>
             <tr><td>确认密码:</td><td><input type="text" name="comfirm_pwd"></input></td></tr>
-            <tr><td></td><td id="td1"><input class="btn btn-sm btn-success" type="submit"></input><input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="top.location.href='index.php'"></input></td></tr>
+            <tr><td></td><td id="td1"><input class="btn btn-sm btn-success" type="submit"></input>&nbsp;&nbsp;&nbsp;<input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="top.location.href='index.php'"></input></td></tr>
         </table>
     </form>
 </body>

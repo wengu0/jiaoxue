@@ -1,0 +1,26 @@
+tr:nth-child(odd){
+    background-color:#6996ac; 
+}
+tr:nth-child(even){
+    background-color:#B8DAFF;
+}
+.fset{
+    width:750px;
+    margin:0px auto;            
+}
+td{
+    text-align: center;
+}
+th{
+    text-align: center;
+}
+#div_pages{
+    text-align: center;
+}
+.inp{
+    width: 50px;
+}
+h3{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
