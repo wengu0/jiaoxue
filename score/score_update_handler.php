@@ -17,7 +17,6 @@
 		 else{
          $sql="update score set course_id='$course_id',score_val='$score_val' where score_id='$score_id'";
 		 $sql2="update student set cls_id='$cls_id' where stu_id='$stu_id'";
-         printf($sql2);
 		 $result=mysqli_query($conn,$sql);
          //php中，非0值，默认为true
 		 if($result>0)  

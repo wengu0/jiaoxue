@@ -36,7 +36,7 @@
         <td><input type="text" name="tch_pwd" value='<?php echo $row["tch_pwd"]; ?>' ></td></tr>
     <tr><td align="center">职称：</td>
         <td>
-           <select name="tch_level" >
+           <select name="tch_level" class="btn btn-primary dropdown-toggle" >
             <?php 
                 $arrLevel=array("助教","讲师","副教授","教授");
                 $current_level=$row["tch_level"];

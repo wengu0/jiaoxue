@@ -7,7 +7,6 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST")
     {
 		 $role=$_POST["role"];          //获取用户类别
-		 printf($role);
 		 $uname=trim($_POST["uname"]);//获取用户名
 		 $upwd=trim($_POST["upwd"]); //密码
 		 $sql="";
