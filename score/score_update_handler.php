@@ -15,6 +15,7 @@
 			echo "<script>alert('请输入完整');window.location.href='score_info.html';</script>"; 
 		 }	 
 		 else{
+			
          $sql="update score set course_id='$course_id',score_val='$score_val' where score_id='$score_id'";
 		 $sql2="update student set cls_id='$cls_id' where stu_id='$stu_id'";
 		 $result=mysqli_query($conn,$sql);

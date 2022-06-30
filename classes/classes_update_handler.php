@@ -19,7 +19,6 @@
 			//检查数据库是否有班级
 			$check_sql= "select * from classes where cls_name='".$cls_name."'";
 			$check=mysqli_query($conn,$check_sql);
-			print($check_sql);
 			if($check->num_rows<1){
 				$sql="update classes set cls_name='$cls_name',cls_count='$cls_count',enrollment_year='$enrollment_year',specialty_name='$specialty_name' where cls_id='$cls_id'";
 				$result=mysqli_query($conn,$sql);

@@ -10,7 +10,7 @@
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/info.css">
 </head>
-<
+
 <body>
 
  <?php
