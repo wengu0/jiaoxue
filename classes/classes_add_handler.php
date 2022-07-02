@@ -12,7 +12,7 @@
          $specialty_name=trim($_POST["specialty_name"]);
 		  
 		 if(empty($cls_name)||empty($cls_count)||empty($enrollment_year)||empty($specialty_name)){
-			echo "<script>alert('请输入完整');window.location.href='classes_add.php';</script>"; 
+			echo "<script>alert('请输入完整');window.location.href='classes_add.html';</script>"; 
 		 }
 		 
 		 else{

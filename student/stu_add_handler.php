@@ -11,7 +11,7 @@
 		 $cls_id=trim($_POST["cls_id"]);  
          $stu_tel=trim($_POST["stu_tel"]);
 		 if(empty($stu_name)||empty($stu_pwd)||empty($cls_id)||empty($stu_tel)){
-			echo "<script>alert('请输入完整');window.location.href='student_info.php';</script>"; 
+			echo "<script>alert('请输入完整');window.location.href='student_info.html';</script>"; 
 		 }
 		 else{
 		 $sql="INSERT INTO `student`(`stu_id`, `stu_name`, `stu_pwd`, `cls_id`, `stu_tel`) ";

@@ -11,7 +11,7 @@
 		 $course_credit=trim($_POST["course_credit"]);  
           
 		 if(empty($course_name)||empty($course_period)||empty($course_credit)){
-			echo "<script>alert('请输入完整');window.location.href='course_info.php';</script>"; 
+			echo "<script>alert('请输入完整');window.location.href='course_info.html';</script>"; 
 		 }
 		 
 		 else{
