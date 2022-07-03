@@ -1,26 +1,31 @@
-  *{
-            border-radius: 5px;
-        }
-        table{
-           margin: 150px auto;            
-        }
-        tr{
-            background-color:cadetblue; 
-        }
-        tr:nth-child(1){
-                background-color: gray;
-                font-size: 30px;
-        }
-        #btnLogin{
-                background-color: green;
-                color: white;
-                width: 100px;
-                height: 25px;
-        }
-        #btnCancel{
-                background-color: red;
-                color: white;
-                width: 100px;
-                height: 25px;
-                
-        }
+  * {
+          border-radius: 5px;
+  }
+
+  table {
+          margin: 150px auto;
+  }
+
+  tr {
+          background-color: cadetblue;
+  }
+
+  tr:nth-child(1) {
+          background-color: gray;
+          font-size: 30px;
+  }
+
+  #btnLogin {
+          background-color: green;
+          color: white;
+          width: 100px;
+          height: 25px;
+  }
+
+  #btnCancel {
+          background-color: red;
+          color: white;
+          width: 100px;
+          height: 25px;
+
+  }

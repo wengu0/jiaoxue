@@ -1,26 +1,33 @@
-tr:nth-child(odd){
-    background-color:#6996ac; 
+tr:nth-child(odd) {
+    background-color: #6996ac;
 }
-tr:nth-child(even){
-    background-color:#B8DAFF;
+
+tr:nth-child(even) {
+    background-color: #B8DAFF;
 }
-.fset{
-    width:750px;
-    margin:0px auto;            
+
+.fset {
+    width: 750px;
+    margin: 0px auto;
 }
-td{
+
+td {
     text-align: center;
 }
-th{
+
+th {
     text-align: center;
 }
-#div_pages{
+
+#div_pages {
     text-align: center;
 }
-.inp{
+
+.inp {
     width: 50px;
 }
-h3{
+
+h3 {
     margin-top: 40px;
     margin-bottom: 20px;
 }

@@ -1,6 +1,6 @@
 <?php
 session_start();       //启动会话
-		
+
 include "../conn_db.php"; //调用Fun.php文件
 $tch_id = $_GET['tch_id'];
 //删除指定数据  
@@ -14,4 +14,3 @@ if (!$result) {
 
 // 删除完跳转到首页
 header("Location:teacher_info.html");
-?>

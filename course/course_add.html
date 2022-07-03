@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,35 +15,45 @@
 
 
 <body>
-<form action="course_add_handler.php" method="post">
-    <table width="500" border="1" height="400" align="center">
-    <h3 align="center">课程新增</h3>
-    <tr><td align="center">课程名称：</td>
-        <td><input type="text" name="course_name" ></td></tr>
-    <tr><td align="center">学期：</td>
-        <td>
-            <select name="course_period" class="btn btn-primary dropdown-toggle" >
-                 
-                 <option value="1" selected>1</option>
-                 
-                 <option value="2">2</option>               
-            </select>       
-         </td></tr>
-    <tr><td align="center">学分：</td>
-        <td>
-           <select name="course_credit" class="btn btn-primary dropdown-toggle" >
-                
-                <option value="2" selected>2</option>
-                
-                <option value="4">4</option>               
-           </select>       
-        </td></tr>
-   
-    <tr><td align="center" colspan="2">
-        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
-        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='course_info.html'">
-    </td></tr>
-    </table>
-</form>
+    <form action="course_add_handler.php" method="post">
+        <table width="500" border="1" height="400" align="center">
+            <h3 align="center">课程新增</h3>
+            <tr>
+                <td align="center">课程名称：</td>
+                <td><input type="text" name="course_name"></td>
+            </tr>
+            <tr>
+                <td align="center">学期：</td>
+                <td>
+                    <select name="course_period" class="btn btn-primary dropdown-toggle">
+
+                        <option value="1" selected>1</option>
+
+                        <option value="2">2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">学分：</td>
+                <td>
+                    <select name="course_credit" class="btn btn-primary dropdown-toggle">
+
+                        <option value="2" selected>2</option>
+
+                        <option value="4">4</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="2">
+                    <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+                    <input class="btn btn-sm btn-secondary" type="button" value="返回"
+                        onclick="location.href='course_info.html'">
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
+
 </html>

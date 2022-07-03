@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,7 @@
 
 <body>
 
- <?php
+    <?php
     
     $stu_id=$_GET["stu_id"];   //收到了tch_id，存在，
 
@@ -35,19 +36,26 @@
 
     if($row=mysqli_fetch_array($result)){
 ?>
-<form action="student_update_handler.php" method="post">
-    <table width="500" border="1" height="400" align="center">
-        <h3 align="center">学生修改</h3>
-    <tr><td align="center">编号：</td>
-        <td><input type="text" readonly name="stu_id" value='<?php echo $stu_id; ?>' ></td></tr>
-    <tr><td align="center">姓名：</td>
-        <td><input type="text" name="stu_name" value='<?php echo $row["stu_name"]; ?>' ></td></tr>
-    <tr><td align="center">密码：</td>
-        <td><input type="text" name="stu_pwd" value='<?php echo $row["stu_pwd"]; ?>' ></td></tr>
-        <tr><td align="center">班级：</td>
-        <td>
-        <select name="cls_id" class="btn btn-primary dropdown-toggle" >
-            <?php 
+    <form action="student_update_handler.php" method="post">
+        <table width="500" border="1" height="400" align="center">
+            <h3 align="center">学生修改</h3>
+            <tr>
+                <td align="center">编号：</td>
+                <td><input type="text" readonly name="stu_id" value='<?php echo $stu_id; ?>'></td>
+            </tr>
+            <tr>
+                <td align="center">姓名：</td>
+                <td><input type="text" name="stu_name" value='<?php echo $row["stu_name"]; ?>'></td>
+            </tr>
+            <tr>
+                <td align="center">密码：</td>
+                <td><input type="text" name="stu_pwd" value='<?php echo $row["stu_pwd"]; ?>'></td>
+            </tr>
+            <tr>
+                <td align="center">班级：</td>
+                <td>
+                    <select name="cls_id" class="btn btn-primary dropdown-toggle">
+                        <?php 
                 
                 $cls_id=$row["cls_id"];
                 foreach($arrLevel as $key=>$val){
@@ -58,18 +66,25 @@
                     echo "<option value='".$key."'>".$val."</option>";
                 }               
             ?>
-           </select>       
-        </td></tr>
-    <tr><td align="center">电话：</td>
-        <td><input type="text" name="stu_tel" value='<?php echo $row["stu_tel"]; ?>' ></td></tr>
-    <tr><td align="center" colspan="2">
-        <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
-        <input class="btn btn-sm btn-secondary" type="button" value="返回" onclick="location.href='student_info.html'">
-    </td></tr>
-    </table>
-</form>
-<?php } 
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">电话：</td>
+                <td><input type="text" name="stu_tel" value='<?php echo $row["stu_tel"]; ?>'></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input class="btn btn-sm btn-primary" type="submit" value="保存">&nbsp;&nbsp;
+                    <input class="btn btn-sm btn-secondary" type="button" value="返回"
+                        onclick="location.href='student_info.html'">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <?php } 
  mysqli_close($conn);
 ?>
 </body>
+
 </html>
